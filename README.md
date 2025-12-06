@@ -67,4 +67,10 @@ model = XGBRegressor(
 
 * Models were assessed primarily with RMSE and MAE. See details below:
 
+### Ethical Considerations
+
+* **Potential negative impacts of the model**:
 * 
+* **Potential uncertainties relating to impacts of using this model**:
+*  
+*  
