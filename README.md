@@ -5,9 +5,9 @@ Final project for DNSC 3288 - Big Data, Predictive Analytics, and Ethics.
 ### Basic Information
 * **Person or organization developing model**:
   - Lauren Kim: `lauren.kim1@gwmail.gwu.edu`,
-  - Kaylyn Phung: 'kaylyn.phung@gwmail.gwu.edu',
-  - Aaron Park: 'suyong848@gwmail.gwu.edu',
-  - Tony Yue: 'yyue53@gwmail.gwu.edu'
+  - Kaylyn Phung: `kaylyn.phung@gwmail.gwu.edu`,
+  - Aaron Park: `suyong848@gwmail.gwu.edu`,
+  - Tony Yue: `yyue53@gwmail.gwu.edu`
 
 
 * **Model date**: December, 2025
