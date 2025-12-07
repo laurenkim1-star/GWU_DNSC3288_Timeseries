@@ -84,6 +84,22 @@ model = XGBRegressor(
 * Segmented Error Analysis:
 <img width="1460" height="853" alt="image" src="https://github.com/user-attachments/assets/7e699915-4367-4d3a-8ba5-4c2a35e875ff" />
 
+- Rows = Shop IDs
+- Columns = Item Category IDs
+- Color = RMSE for shop & category combination
+  - Dark purple = low error (model predicts well)
+  - Green & yellow = high error (model predicts poorly)
+  - Straight vertical lines of yellow = certain categories are hard everywhere
+  - Straight horizontal lines = certain shops perform poorly across all categories
+  - Bright squares = extreme outliers (model failed completely)
+
+* Interpretation:
+    * Bright yellow vertical bands indicate that the model lacks features strong enough to capture explosive sales patterns.
+    * Bright horizontal bands indicate that the model underperforms for certain shops across every category, displauing a structural issue.
+         * These shops sell more unpredictable items, with a large diversity.
+    * Dark purple waves indicate that the XGBoost model excels with categories with stable demand, with more predictable monthly sell-through.
+   
+
 
 ### Ethical Considerations
 
@@ -141,6 +157,8 @@ What: Risks come in the form of financial loss. This model predicts the future s
 Unexpected Results:
 * Various unforeseen or unusual tendencies were noticed during the assessment of the prediction and residual trends of the model. These oddities do not necessarily suggest that the model is broken but it points out areas in which XGBoost would perform poorly because of inherent constraints of the data and the prediction problem.
 * Concentration at Both ends (Q-Q Plot Behavior):
+<img width="543" height="545" alt="image" src="https://github.com/user-attachments/assets/18e7e7ee-f82e-4c9c-af2c-5e57912714f6" />
+
   * The Q-Q plot indicates that there is a major deviation of the theoretical normal line especially in the two tails. This implies that the model generates extremely huge positive or negative errors on a small fraction of items.
   * These drastic residuals are mainly caused by:
     * Spike at the season (e.g. holiday sales)
