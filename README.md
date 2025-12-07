@@ -3,7 +3,6 @@ Final project for DNSC 3288 - Big Data, Predictive Analytics, and Ethics.
 
 # Predicting Future Sales Model Card
 ### Basic Information
-
 * **Person or organization developing model**:
 - Lauren Kim: `lauren.kim1@gwmail.gwu.edu`,
 - Kaylyn Phung: 'kaylyn.phung@gwmail.gwu.edu',
