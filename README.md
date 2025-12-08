@@ -26,15 +26,31 @@ Final project for DNSC 3288 - Big Data, Predictive Analytics, and Ethics.
 
 | Name | Modeling Role | Measurement Level| Description|
 | ---- | ------------- | ---------------- | ---------- |
-| **date** | input feature | Ordinal | Original calendar date of each daily sales record |
-| **date_block_num** | input feature | Ordinal | month index representing time |
-| **shop_id** | input feature | Categorical | unique identifier for each shop |
-| **item_id** | input feature | Ordinal | Unique identifier for each product item |
-| **item_price** | input feature | Numerical | price of the item in the transaction |
-| **item_name** | input feature | Categorical | name of items |
-| **item_category_id** | input feature | Categorical | categorical identifier of each product’s category |
-| **shop_name** | input feature | Categorical | name of the shops in the data set |
-| **item_category_name** | input feature | Categorical | name of each category which items belong to |
+| **date** | Input feature | Ordinal | Original calendar date of each daily sales record |
+| **date_block_num** | Input feature | Ordinal | Month index frpm 0-33 representing time progression to capture temporal trends |
+| **shop_id** | Input feature | Categorical | Unique identifier for each shop, encoded as integer but categorical |
+| **item_id** | Input feature | Categorical | Unique identifier for each product, used to model item-specific demand |
+| **item_cnt_month** | Target feature | Continuous | Monthly sales count for item-shop pairs, values have been clipped to [0,20] |
+| **city_code** | Input feature | Categorical | Encoded city label extracted from shop name |
+| **item_category_id** | Input feature | Categorical | categorical identifier of each product’s category |
+| **type_code** | Input feature | Categorical | Item type derived from item category name |
+| **subtype_code** | Input feature | Categorical | Subcategory of item in the transaction |
+| **item_cnt_month_lag_1, 2, 3, 6, & 12** | Input feature | Continuous | Price of the item in the transaction 1, 2, 3, 6 & 12 months ago |
+| **date_avg_item_cnt_lag_1** | Input feature | Continuous | Average item sales across all shops last month |
+| **date_item_avg_item_cnt_lag_1, 2, 3, 6 & 12** | Input feature | Continuous | Average sales for an item 1, 2, 3, 6 & 12 months ago |
+| **date_shop_avg_item_cnt_lag_1, 2, 3, 6 & 12** | Input feature | Continuous | Average shop sales of all items 1, 2, 3, 6 & 12 months ago  |
+| **date_cat_avg_item_cnt_lag_1** | Input feature | Continuous | Category-level average sales 1 month ago |
+| **date_shop_cat_avg_item_cnt_lag_1** | Input feature | Categorical | Average sales for shop-category pair 1 month ago |
+| **date_city_avg_item_cnt_lag_1** | Input feature | Categorical | Average sales of all shops in a city 1 month ago |
+| **date_item_city_avg_item_cnt_lag_1** | Input feature | Categorical | cAverage sales of an item in a city 1 month ago |
+| **delta_price_lag** | Input feature | Categorical | Relative price change from last sale against hisorical average price |
+| **month** | Input feature | Ordinal | Month index (1-12) |
+| **days** | Input feature | Continuous | Number of days within a month |
+| **item_shop_last_sale** | Input feature | Continuous | How many months since item was last sold in a shop |
+| **item_last_sale** | Input feature | Continuous | How many months since this item last sold anywhere |
+| **item_shop_first_sale** | Input feature | Continuous | How many months since this item first appeared in a shop |
+| **item_first_sale** | Input feature | Continuous | How many months since this item first appeared |
+
 
 * **Source of training data**: Kaggle, https://www.kaggle.com/c/competitive-data-science-predict-future-sales 
 * **How training data was divided into training and validation data**: 
