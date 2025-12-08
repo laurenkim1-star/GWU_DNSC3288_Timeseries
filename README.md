@@ -109,8 +109,8 @@ model = XGBRegressor(
   - Bright squares = extreme outliers (model failed completely)
 
 * Interpretation:
-    * Bright yellow vertical bands indicate that the model lacks features strong enough to capture explosive sales patterns.
-    * Bright horizontal bands indicate that the model underperforms for certain shops across every category, displauing a structural issue.
+    * Bright yellow vertical bands indicate that the model lacks features strong enough to capture outlier sales patterns.
+    * Bright horizontal bands indicate that the model underperforms for certain shops across every category, displaying a structural issue.
          * These shops sell more unpredictable items, with a large diversity.
     * Dark purple waves indicate that the XGBoost model excels with categories with stable demand, with more predictable monthly sell-through.
    
@@ -121,7 +121,8 @@ model = XGBRegressor(
 **Potential negative impacts of the model**:
 
 Math or software problems: 
-  * Overfitting despite regularization:XGBoost can still memorize noise in the training data, especially when many engineered features or time-dependent patterns are included.  This inflates validation accuracy and creates overly confident forecasts that could mislead decision-makers.
+* Overfitting despite regularization:
+    * XGBoost can still memorize noise in the training data, especially when many engineered features or time-dependent patterns are included. This inflates validation accuracy and creates overly confident forecasts that could mislead decision-makers.
 * Data leakage risks:
   * If any future information (e.g., lag features created improperly, cumulative metrics, or look-ahead variables) leaks into the training window, the model will appear accurate but fail in production.
 * Sensitivity to missing data or preprocessing errors:
@@ -132,8 +133,8 @@ Real-world Risks:
   * What: Over/under-ordering due to inaccurate demand predictions.
   * When: Peak seasons, holidays, promotions, or unexpected shifts in demand.
   * How:
-     Overstock → waste, higher storage costs.
-     Understock → lost revenue, customer dissatisfaction.
+     Overstock leads to waste, higher storage costs.
+     Understock leads to lost revenue, customer dissatisfaction.
 * Unequal Treatment Across Stores
   * Who: Smaller stores, rural regions, minority communities.
   * What: Systematic underprediction or overprediction of sales.
@@ -197,7 +198,7 @@ Possible Excessive Smoothing of Large Volume Products:
 * This gives the shape of a funnel to the residuals:
     * Predictive values are large and negative - higher predicted values
     * Low values of the prediction - positive large residues
-    * This trend means that the model can be agile to the variability of high-selling products, probably due to:
+    * This trend means that the model can be agile to the variability of high-selling products
 
 Means of features increase damping behavior of unique items:
 * The tree-based models smooth prediction of similar items.
@@ -213,9 +214,9 @@ In case of an abrupt price fall or rise of an item:
 * Such anomalies can be seen in the scatter plots where some of the prediction is going to be unexpected even when low selling items are involved.
 
 
-Mismatches between Real-World Behavior and Validation RMSE
+Mismatches between Real-World Behavior and Validation RMSE:
 * Although the validation RMSE seems to be good (0.9068), it might not be the same in actual performance due to the following reasons:
-* The Black Friday and early holiday season effects are on the Kaggle test month.
-* The model is not specifically based on seasonal or promotional characteristics.
-  * This implies that the model can appear to be good on paper and yet fail to work in an operational environment.
+  * The Black Friday and early holiday season effects are on the Kaggle test month.
+  * The model is not specifically based on seasonal or promotional characteristics.
+* This implies that the model can appear to be good on paper and yet fail to work in an operational environment.
 
