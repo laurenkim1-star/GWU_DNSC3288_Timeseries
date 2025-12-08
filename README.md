@@ -1,4 +1,4 @@
-# GWU_DNSC3288_Timeseries
+# GWU_DNSC3288_Timeseries_Group06
 Final project for DNSC 3288 - Big Data, Predictive Analytics, and Ethics.
 
 # Predicting Future Sales Model Card
