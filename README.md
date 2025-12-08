@@ -53,19 +53,19 @@ Final project for DNSC 3288 - Big Data, Predictive Analytics, and Ethics.
 
 
 * **Source of training data**: Kaggle, https://www.kaggle.com/c/competitive-data-science-predict-future-sales 
-* **How training data was divided into training and validation data**: 
+* **How training data was divided into training and validation data**: The training data was dividided using time-based splitting, rather than random splitting as this is a time series model. The training data included all months from 0-32, while the validation data only included month 33. 
 * **Number of rows in training and validation data**:
-  * Training rows: 200,327
-  * Validation rows: 22,259
+  * Training rows: 6,186,922
+  * Validation rows: 238,172
  
 ### Test Data
 * **Source of test data**: Kaggle, https://www.kaggle.com/c/competitive-data-science-predict-future-sales 
 * **Number of rows in test data**: 214,200
-* **State any differences in columns between training and test data**: Compared to the train data, test data only contains 3 columns, including ID, shop ID, and item ID. Since test data does not contain any information related to sales, predictions are purely generated based on the model and its input features. 
+* **State any differences in columns between training and test data**: The train data and test data dataframes used as inputs into the final model use the same columns.
 
 ### Model details
-* **Columns used as inputs in the final model**: 
-* **Column(s) used as target(s) in the final model**: 
+* **Columns used as inputs in the final model**: All columns discluding item_cnt_month were used as inputs into the final model. 
+* **Column(s) used as target(s) in the final model**: item_cnt_month
 * **Type of model**: XGBoost Regressor
 * **Software used to implement the model**: Python, scikit-learn
 * **Version of the modeling software**: 3.13.5
@@ -86,7 +86,7 @@ model = XGBRegressor(
 
 ### Quantitative Analysis
 
-* Models were assessed primarily with RMSE and MAE. See details below:
+* Models were assessed primarily with RMSE, MAE and segmented error analysis. See details below:
 
 | Train RMSE | Validation RMSE | Test RMSE |
 | ------ | ------- | -------- |
