@@ -13,7 +13,7 @@ Final project for DNSC 3288 - Big Data, Predictive Analytics, and Ethics.
 * **Model date**: December, 2025
 * **Model version**: 1.0
 * **License**: Apache 2.0
-* **Model implementation code**: [feature-engineering-xgboost.ipynb]
+* **Model implementation code**: [[feature-engineering-xgboost.ipynb](https://drive.google.com/file/d/1ABd3FDM7acoySjwoWYGPLKApJie0EshA/view?usp=sharing)]
 
 ### Intended Use
 * **Primary intended uses**: This model provides an *example* of a predicting future sales using XGBoost timeseries model 
