@@ -16,7 +16,7 @@ Final project for DNSC 3288 - Big Data, Predictive Analytics, and Ethics.
 * **Model implementation code**: [[Group06-Model-Code.ipynb](https://drive.google.com/file/d/1ABd3FDM7acoySjwoWYGPLKApJie0EshA/view?usp=sharing)]
 
 ### Intended Use
-* **Primary intended uses**: This model provides an *example* of a predicting future sales using XGBoost timeseries model 
+* **Primary intended uses**: This model provides an *example* of a predicting future sales using XGBoost time series model 
 * **Primary intended users**: Students in GWU's Business Analytics program.
 * **Out-of-scope use cases**: Any use beyond an educational example is out-of-scope.
 
@@ -27,12 +27,12 @@ Final project for DNSC 3288 - Big Data, Predictive Analytics, and Ethics.
 | Name | Modeling Role | Measurement Level| Description|
 | ---- | ------------- | ---------------- | ---------- |
 | **date** | Input feature | Ordinal | Original calendar date of each daily sales record |
-| **date_block_num** | Input feature | Ordinal | Month index frpm 0-33 representing time progression to capture temporal trends |
+| **date_block_num** | Input feature | Ordinal | Month index from 0-33 representing time progression to capture temporal trends |
 | **shop_id** | Input feature | Categorical | Unique identifier for each shop, encoded as integer but categorical |
 | **item_id** | Input feature | Categorical | Unique identifier for each product, used to model item-specific demand |
 | **item_cnt_month** | Target feature | Continuous | Monthly sales count for item-shop pairs, values have been clipped to [0,20] |
 | **city_code** | Input feature | Categorical | Encoded city label extracted from shop name |
-| **item_category_id** | Input feature | Categorical | categorical identifier of each product’s category |
+| **item_category_id** | Input feature | Categorical | Categorical identifier of each product’s category |
 | **type_code** | Input feature | Categorical | Item type derived from item category name |
 | **subtype_code** | Input feature | Categorical | Subcategory of item in the transaction |
 | **item_cnt_month_lag_1, 2, 3, 6, & 12** | Input feature | Continuous | Price of the item in the transaction 1, 2, 3, 6 & 12 months ago |
@@ -119,6 +119,7 @@ model = XGBRegressor(
 ### Ethical Considerations
 
 **Potential negative impacts of the model**:
+
 Math or software problems: 
   * Overfitting despite regularization:XGBoost can still memorize noise in the training data, especially when many engineered features or time-dependent patterns are included.  This inflates validation accuracy and creates overly confident forecasts that could mislead decision-makers.
 * Data leakage risks:
@@ -150,6 +151,7 @@ Real-world Risks:
      Poor strategic outcomes.
 
 **Potential uncertainties relating to impacts of using this model**:
+
 Math or software problems 
 * Non-stationary data:
   * Consumer behavior, price sensitivity, and promotional effects change over time. XGBoost assumes the future resembles the past, which introduces uncertainty if structural shifts occur (e.g., economic shocks, pandemics).
