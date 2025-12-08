@@ -13,7 +13,7 @@ Final project for DNSC 3288 - Big Data, Predictive Analytics, and Ethics.
 * **Model date**: December, 2025
 * **Model version**: 1.0
 * **License**: Apache 2.0
-* **Model implementation code**: [[Group06-Model-Code.ipynb](https://drive.google.com/file/d/1ABd3FDM7acoySjwoWYGPLKApJie0EshA/view?usp=sharing)]
+* **Model implementation code**: [[Group06-Model-Code.ipynb](https://drive.google.com/file/d/1ctn4lAw2a1wmAayXh1xn41G0QwPvf6BK/view?usp=sharing)]
 
 ### Intended Use
 * **Primary intended uses**: This model provides an *example* of a predicting future sales using XGBoost time series model 
@@ -127,6 +127,7 @@ Math or software problems:
   * If any future information (e.g., lag features created improperly, cumulative metrics, or look-ahead variables) leaks into the training window, the model will appear accurate but fail in production.
 * Sensitivity to missing data or preprocessing errors:
   * Even small inconsistencies in scaling, encoding, or date alignment can shift predictions significantly. In a real retail setting, failing to handle missing entries or sudden outliers can lead to biased demand forecasts.
+
 Real-world Risks:
 * Inventory Misallocation
   * Who: Store managers, supply-chain teams, customers.
@@ -173,22 +174,22 @@ What: Risks come in the form of financial loss. This model predicts the future s
   * Over-reliance on this model can lead to financial miscalculations. If a retail business were to base its inventory stocking on this model, the result could be financial loss due to inaccurate projections. This model is not 100% accurate in estimating future sales, but it can be used as a rough estimate of what future sales could look like.
 
 Unexpected Results:
-* Various unforeseen or unusual tendencies were noticed during the assessment of the prediction and residual trends of the model. These oddities do not necessarily suggest that the model is broken but it points out areas in which XGBoost would perform poorly because of inherent constraints of the data and the prediction problem.
+* Various unforeseen or unusual tendencies were noticed during the assessment of the prediction and residuals of the model, however the oddities do not necessarily suggest that the model is broken but it points out areas in which XGBoost would perform poorly because of inherent constraints of the data and the prediction problem.
 * Concentration at Both ends (Q-Q Plot Behavior):
 <img width="543" height="545" alt="image" src="https://github.com/user-attachments/assets/18e7e7ee-f82e-4c9c-af2c-5e57912714f6" />
 
-  * The Q-Q plot indicates that there is a major deviation of the theoretical normal line especially in the two tails. This implies that the model generates extremely huge positive or negative errors on a small fraction of items.
+  * The Q-Q plot indicates that there is a major deviation of the theoretical normal line especially in the two tails, implying that the model generates extremely huge positive or negative errors on a small fraction of items.
   * These drastic residuals are mainly caused by:
-    * Spike at the season (e.g. holiday sales)
-    * Products that have small historical information
-    * Items that have ended and the historic data are giving a false impression of demand
+    * Spike at the season (e.g. holiday sales).
+    * Products that have small historical information.
+    * Items that have ended and the historic data are giving a false impression of demand.
     * The fat tails indicate that XGBoost is incapable of capturing all unusual sudden shifts that adhere to a real time-series data.
 
 Overweight Clustering at Zero and Near-Zero Predictions:
 * Even in cases where true sales are much higher, a high proportion of predictions between 0 and 1 gives a high probability of occurrence.
 * The reason is that the dataset is grossly lopsided (most item/shop/month combinations report zero or very low sales), which results in:
-  * Preference to safe low-prediction model
-  * Low forecasting the popular goods
+  * Preference to safe low-prediction model.
+  * Low forecasting the popular goods.
 * This is observed evidently in the Residuals vs. Predicted plot, in which a significant number of predictions are close to zero with large positive residuals.
 <img width="703" height="468" alt="image" src="https://github.com/user-attachments/assets/d8d6f29e-077f-4b36-9a8e-fd085856e288" />
 
@@ -196,13 +197,13 @@ Overweight Clustering at Zero and Near-Zero Predictions:
 Possible Excessive Smoothing of Large Volume Products:
 * When the items are selling 10-20 items per month, the model is more likely to come closer to the mean (around 6-10).
 * This gives the shape of a funnel to the residuals:
-    * Predictive values are large and negative - higher predicted values
-    * Low values of the prediction - positive large residues
-    * This trend means that the model can be agile to the variability of high-selling products
+    * Predictive values are large and negative - higher predicted values.
+    * Low values of the prediction - positive large residues.
+    * This trend means that the model can be agile to the variability of high-selling products.
 
 Means of features increase damping behavior of unique items:
 * The tree-based models smooth prediction of similar items.
-* Fluctuating Behavior with Price Change Characteristics.
+* Fluctuating Behavior with price change features.
   * The importance of some features (e.g., delta_price_lag) is very high.
 <img width="1070" height="1161" alt="image" src="https://github.com/user-attachments/assets/8597ae04-f059-4f66-bf6c-adbfbeb5200c" />
 
@@ -210,7 +211,7 @@ Means of features increase damping behavior of unique items:
 
 In case of an abrupt price fall or rise of an item:
 * The model is also hyper-sensitive, over-reacting on the price signal, which is not as significant as it is perceived to be.
-* This sometimes leads to high predictions which are not the same as the historical sales.
+  * This sometimes leads to high predictions which are not the same as the historical sales.
 * Such anomalies can be seen in the scatter plots where some of the prediction is going to be unexpected even when low selling items are involved.
 
 
@@ -218,5 +219,5 @@ Mismatches between Real-World Behavior and Validation RMSE:
 * Although the validation RMSE seems to be good (0.9068), it might not be the same in actual performance due to the following reasons:
   * The Black Friday and early holiday season effects are on the Kaggle test month.
   * The model is not specifically based on seasonal or promotional characteristics.
-* This implies that the model can appear to be good on paper and yet fail to work in an operational environment.
-
+ 
+NOTE: ChatGPT-5 was utilized in the analysis of this model. LLM usage within the attached Python notebook has been annotated.
