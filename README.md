@@ -171,6 +171,8 @@ Overweight Clustering at Zero and Near-Zero Predictions:
   * Preference to safe low-prediction model
   * Low forecasting the popular goods
 * This is observed evidently in the Residuals vs. Predicted plot, in which a significant number of predictions are close to zero with large positive residuals.
+<img width="703" height="468" alt="image" src="https://github.com/user-attachments/assets/d8d6f29e-077f-4b36-9a8e-fd085856e288" />
+
 
 Possible Excessive Smoothing of Large Volume Products:
 * When the items are selling 10-20 items per month, the model is more likely to come closer to the mean (around 6-10).
@@ -183,6 +185,9 @@ Means of features increase damping behavior of unique items:
 * The tree-based models smooth prediction of similar items.
 * Fluctuating Behavior with Price Change Characteristics.
   * The importance of some features (e.g., delta_price_lag) is very high.
+<img width="1070" height="1161" alt="image" src="https://github.com/user-attachments/assets/8597ae04-f059-4f66-bf6c-adbfbeb5200c" />
+
+
 
 In case of an abrupt price fall or rise of an item:
 * The model is also hyper-sensitive, over-reacting on the price signal, which is not as significant as it is perceived to be.
