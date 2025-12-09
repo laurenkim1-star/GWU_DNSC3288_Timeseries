@@ -16,7 +16,7 @@ Final project for DNSC 3288 - Big Data, Predictive Analytics, and Ethics.
 * **Model implementation code**: [[Group06-Model-Code.ipynb](https://drive.google.com/file/d/1l-J4At2HyMEfatVnPbTIVWAQv1_ux0FA/view?usp=sharing)]
 
 ### Intended Use
-* **Primary intended uses**: This model provides an *example* of a predicting future sales using XGBoost time series model 
+* **Primary intended uses**: This model provides an *example* of a predicting future sales using XGBoost time series model.
 * **Primary intended users**: Students in GWU's Business Analytics program.
 * **Out-of-scope use cases**: Any use beyond an educational example is out-of-scope.
 
