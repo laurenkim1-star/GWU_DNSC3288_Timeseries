@@ -14,6 +14,7 @@ Final project for DNSC 3288 - Big Data, Predictive Analytics, and Ethics.
 * **Model version**: 1.0
 * **License**: Apache 2.0
 * **Model implementation code**: [[Group06-Model-Code.ipynb](https://drive.google.com/file/d/1l-J4At2HyMEfatVnPbTIVWAQv1_ux0FA/view?usp=sharing)]
+* **Model implementation IDE**: Google Colaboratory, Visual Studio Code (1.105.1 (Universal))
 
 ### Intended Use
 * **Primary intended uses**: This model provides an *example* of a predicting future sales using XGBoost time series model.
